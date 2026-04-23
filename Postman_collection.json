@@ -1,0 +1,235 @@
+{
+  "info": {
+    "name": "Healthcare Backend Full API Collection",
+    "_postman_id": "healthcare-full-api-001",
+    "description": "Complete CRUD APIs for Django Healthcare Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"12345\"\n}"
+            },
+            "url": "{{base_url}}/api/auth/register/"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"12345\"\n}"
+            },
+            "url": "{{base_url}}/api/auth/login/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Patients",
+      "item": [
+        {
+          "name": "Create Patient",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice\",\n  \"age\": 30,\n  \"gender\": \"Female\",\n  \"disease\": \"Fever\",\n  \"phone\": \"9999999999\",\n  \"address\": \"Hyderabad\"\n}"
+            },
+            "url": "{{base_url}}/api/patients/"
+          }
+        },
+        {
+          "name": "List Patients",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/patients/"
+          }
+        },
+        {
+          "name": "Get Patient",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/patients/1/"
+          }
+        },
+        {
+          "name": "Update Patient",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Updated\",\n  \"age\": 31,\n  \"gender\": \"Female\",\n  \"disease\": \"Cold\"\n}"
+            },
+            "url": "{{base_url}}/api/patients/1/"
+          }
+        },
+        {
+          "name": "Patch Patient",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"disease\": \"Recovered\"\n}"
+            },
+            "url": "{{base_url}}/api/patients/1/"
+          }
+        },
+        {
+          "name": "Delete Patient",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/patients/1/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Doctors",
+      "item": [
+        {
+          "name": "Create Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr Smith\",\n  \"specialization\": \"Cardiology\",\n  \"experience\": 10,\n  \"phone\": \"8888888888\",\n  \"email\": \"drsmith@example.com\"\n}"
+            },
+            "url": "{{base_url}}/api/doctors/"
+          }
+        },
+        {
+          "name": "List Doctors",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/doctors/"
+          }
+        },
+        {
+          "name": "Get Doctor",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/doctors/1/"
+          }
+        },
+        {
+          "name": "Update Doctor",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Dr Updated\",\n  \"specialization\": \"Neurology\",\n  \"experience\": 12,\n  \"email\": \"drupdated@example.com\"\n}"
+            },
+            "url": "{{base_url}}/api/doctors/1/"
+          }
+        },
+        {
+          "name": "Patch Doctor",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"experience\": 15\n}"
+            },
+            "url": "{{base_url}}/api/doctors/1/"
+          }
+        },
+        {
+          "name": "Delete Doctor",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/doctors/1/"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mappings",
+      "item": [
+        {
+          "name": "Assign Doctor",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"patient\": 1,\n  \"doctor\": 1\n}"
+            },
+            "url": "{{base_url}}/api/mappings/"
+          }
+        },
+        {
+          "name": "List Mappings",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/mappings/"
+          }
+        },
+        {
+          "name": "Get Patient Doctors",
+          "request": {
+            "method": "GET",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/mappings/1/"
+          }
+        },
+        {
+          "name": "Delete Mapping",
+          "request": {
+            "method": "DELETE",
+            "header": [{ "key": "Authorization", "value": "Bearer {{token}}" }],
+            "url": "{{base_url}}/api/mappings/1/"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000" },
+    { "key": "token", "value": "" }
+  ]
+}
