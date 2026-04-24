@@ -36,7 +36,7 @@ DB_PORT=5432
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
-python db_init.py
+Configure PostgreSQL
 cd healtchcare_backend
 python manage.py makemigrations
 python manage.py migrate
